@@ -1,0 +1,3 @@
+[submodule "tilarium"]
+	path = tilarium
+	url = git@github.com:fizx/tilarium.git
