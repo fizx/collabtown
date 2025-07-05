@@ -14,6 +14,9 @@ import townConfigJSON from "../client/public/town.json";
 const app = express();
 app.use(express.json());
 
+const MAX_Z_INDEX = 4;
+const NUM_LAYERS = MAX_Z_INDEX + 1;
+
 let tileConfig: TileConfig;
 let tileIdToNumericId: Map<string, number>;
 let numericIdToTileId: Map<number, { id: string; zIndex: number }>;
@@ -51,27 +54,26 @@ app.get("/api/init", async (req, res): Promise<any> => {
   const tilemapData = await redis.get(key);
 
   let placedTiles: PlacedTile[] = [];
-  if (!tilemapData) {
-    if (!tileConfig.mapSize || tileConfig.mapSize === "infinite") {
-      return res.status(500).send("Invalid map size");
-    }
-    const { width, height } = tileConfig.mapSize;
-    const size = width * height * 2;
-    await redis.set(key, Buffer.alloc(size).toString("binary"));
-  } else {
+  if (!tileConfig.mapSize || tileConfig.mapSize === "infinite") {
+    return res.status(500).send("Invalid map size");
+  }
+  const { width, height } = tileConfig.mapSize;
+  const size = width * height * NUM_LAYERS;
+  await redis.set(key, Buffer.alloc(size).toString("binary"));
+
+  if (tilemapData) {
     const buffer = Buffer.from(tilemapData, "binary");
-    if (!tileConfig.mapSize || tileConfig.mapSize === "infinite") {
-      return res.status(500).send("Invalid map size");
-    }
-    const { width } = tileConfig.mapSize;
-    for (let i = 0; i < buffer.length; i += 2) {
-      const numericId = buffer[i + 1];
-      if (numericId && numericId !== 0) {
-        const tileInfo = numericIdToTileId.get(numericId);
-        if (tileInfo) {
-          const x = (i / 2) % width;
-          const y = Math.floor(i / 2 / width);
-          placedTiles.push({ x, y, tileId: tileInfo.id });
+    for (let y = 0; y < height; y++) {
+      for (let x = 0; x < width; x++) {
+        for (let z = 0; z < NUM_LAYERS; z++) {
+          const offset = (y * width + x) * NUM_LAYERS + z;
+          const numericId = buffer.readUInt8(offset);
+          if (numericId !== 0) {
+            const tileInfo = numericIdToTileId.get(numericId);
+            if (tileInfo) {
+              placedTiles.push({ x, y, tileId: tileInfo.id });
+            }
+          }
         }
       }
     }
@@ -135,7 +137,7 @@ app.post("/api/deltas", async (req, res): Promise<any> => {
   const tilemapData = await redis.get(key);
   const buffer = tilemapData
     ? Buffer.from(tilemapData, "binary")
-    : Buffer.alloc(width * height * 2);
+    : Buffer.alloc(width * height * NUM_LAYERS);
 
   for (const delta of deltas) {
     if (delta.type === "ADD_TILE") {
@@ -143,15 +145,17 @@ app.post("/api/deltas", async (req, res): Promise<any> => {
       const numericId = tileIdToNumericId.get(tileId);
       const tile = tileConfig.tiles[tileId];
       if (numericId && tile && typeof tile.zIndex === "number") {
-        const offset = (y * width + x) * 2;
-        buffer.writeUInt8(tile.zIndex, offset);
-        buffer.writeUInt8(numericId, offset + 1);
+        const offset = (y * width + x) * NUM_LAYERS + tile.zIndex;
+        const data = Buffer.from([numericId]);
+        await redis.setRange(key, offset, data.toString("binary"));
       }
     } else if (delta.type === "REMOVE_TILE") {
-      const { x, y } = delta.payload;
-      const offset = (y * width + x) * 2;
-      buffer.writeUInt8(0, offset);
-      buffer.writeUInt8(0, offset + 1);
+      const { x, y, tileId } = delta.payload;
+      const tile = tileConfig.tiles[tileId];
+      if (tile && typeof tile.zIndex === "number") {
+        const offset = (y * width + x) * NUM_LAYERS + tile.zIndex;
+        await redis.setRange(key, offset, Buffer.alloc(1).toString("binary"));
+      }
     }
   }
 
