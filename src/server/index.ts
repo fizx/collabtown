@@ -8,6 +8,7 @@ import {
   PlacedTile,
   TilemapAction,
 } from "tilarium/dist/index";
+import { v4 as uuidv4 } from "uuid";
 import townConfigJSON from "../client/public/town.json";
 
 const app = express();
@@ -37,22 +38,19 @@ function initializeTileConfig() {
 }
 
 const getTilemapKey = (postId: string) => `tilemap:${postId}`;
-
-const getRealtimeChannel = (postId: string) => `tilemap-updates:${postId}`;
+const getDeltaLogKey = (postId: string) => `deltalog:${postId}`;
 
 app.get("/api/init", async (req, res): Promise<any> => {
   const currentContext = context;
-  if (!currentContext) {
-    return res.status(400).send("Missing context");
+  if (!currentContext || !currentContext.postId) {
+    return res.status(400).send("Missing context or postId");
   }
   const { postId } = currentContext;
-  if (!postId) {
-    return res.status(400).send("Missing postId");
-  }
 
   const key = getTilemapKey(postId);
   const tilemapData = await redis.get(key);
 
+  let placedTiles: PlacedTile[] = [];
   if (!tilemapData) {
     if (!tileConfig.mapSize || tileConfig.mapSize === "infinite") {
       return res.status(500).send("Invalid map size");
@@ -60,56 +58,84 @@ app.get("/api/init", async (req, res): Promise<any> => {
     const { width, height } = tileConfig.mapSize;
     const size = width * height * 2;
     await redis.set(key, Buffer.alloc(size).toString("binary"));
-    return res.json({
-      placedTiles: [],
-      backgroundTileId: null,
-      tileToReplace: null,
-    } as TilemapState);
-  }
-
-  const placedTiles: PlacedTile[] = [];
-  const buffer = Buffer.from(tilemapData, "binary");
-  if (!tileConfig.mapSize || tileConfig.mapSize === "infinite") {
-    return res.status(500).send("Invalid map size");
-  }
-  const { width } = tileConfig.mapSize;
-
-  for (let i = 0; i < buffer.length; i += 2) {
-    const zIndex = buffer[i];
-    const numericId = buffer[i + 1];
-    if (numericId && numericId !== 0) {
-      const tileInfo = numericIdToTileId.get(numericId);
-      if (tileInfo) {
-        const x = (i / 2) % width;
-        const y = Math.floor(i / 2 / width);
-        placedTiles.push({ x, y, tileId: tileInfo.id });
+  } else {
+    const buffer = Buffer.from(tilemapData, "binary");
+    if (!tileConfig.mapSize || tileConfig.mapSize === "infinite") {
+      return res.status(500).send("Invalid map size");
+    }
+    const { width } = tileConfig.mapSize;
+    for (let i = 0; i < buffer.length; i += 2) {
+      const numericId = buffer[i + 1];
+      if (numericId && numericId !== 0) {
+        const tileInfo = numericIdToTileId.get(numericId);
+        if (tileInfo) {
+          const x = (i / 2) % width;
+          const y = Math.floor(i / 2 / width);
+          placedTiles.push({ x, y, tileId: tileInfo.id });
+        }
       }
     }
   }
 
   res.json({
-    placedTiles,
-    backgroundTileId: null,
-    tileToReplace: null,
-  } as TilemapState);
+    state: {
+      placedTiles,
+      backgroundTileId: null,
+      tileToReplace: null,
+    },
+    timestamp: Date.now(),
+  });
+});
+
+app.get("/api/deltas", async (req, res): Promise<any> => {
+  const currentContext = context;
+  if (!currentContext || !currentContext.postId) {
+    return res.status(400).send("Missing context or postId");
+  }
+  const { postId } = currentContext;
+  const since = req.query.since as string;
+
+  const deltas = await redis.zRange(
+    getDeltaLogKey(postId),
+    `(${since}`,
+    "+inf",
+    { by: "score" }
+  );
+
+  res.json({
+    deltas: deltas
+      .map((item) => {
+        const parts = item.member.split(":");
+        if (parts.length > 1) {
+          return JSON.parse(parts.slice(1).join(":"));
+        }
+        return null;
+      })
+      .filter(Boolean),
+    timestamp: Date.now(),
+  });
 });
 
 app.post("/api/deltas", async (req, res): Promise<any> => {
   const currentContext = context;
-  if (!currentContext) {
-    return res.status(400).send("Missing context");
+  if (!currentContext || !currentContext.postId) {
+    return res.status(400).send("Missing context or postId");
   }
   const { postId } = currentContext;
-  if (!postId) {
-    return res.status(400).send("Missing postId");
-  }
 
   const deltas = req.body as TilemapAction[];
   const key = getTilemapKey(postId);
+  const deltaKey = getDeltaLogKey(postId);
+
   if (!tileConfig.mapSize || tileConfig.mapSize === "infinite") {
     return res.status(500).send("Invalid map size");
   }
-  const { width } = tileConfig.mapSize;
+  const { width, height } = tileConfig.mapSize;
+
+  const tilemapData = await redis.get(key);
+  const buffer = tilemapData
+    ? Buffer.from(tilemapData, "binary")
+    : Buffer.alloc(width * height * 2);
 
   for (const delta of deltas) {
     if (delta.type === "ADD_TILE") {
@@ -118,21 +144,27 @@ app.post("/api/deltas", async (req, res): Promise<any> => {
       const tile = tileConfig.tiles[tileId];
       if (numericId && tile && typeof tile.zIndex === "number") {
         const offset = (y * width + x) * 2;
-        const data = Buffer.from([tile.zIndex, numericId]);
-        await redis.setRange(key, offset, data.toString("binary"));
+        buffer.writeUInt8(tile.zIndex, offset);
+        buffer.writeUInt8(numericId, offset + 1);
       }
     } else if (delta.type === "REMOVE_TILE") {
       const { x, y } = delta.payload;
       const offset = (y * width + x) * 2;
-      const data = Buffer.alloc(2);
-      await redis.setRange(key, offset, data.toString("binary"));
+      buffer.writeUInt8(0, offset);
+      buffer.writeUInt8(0, offset + 1);
     }
   }
 
-  await (realtime as RealtimeClient).send(
-    getRealtimeChannel(postId),
-    deltas as any
-  );
+  await redis.set(key, buffer.toString("binary"));
+
+  if (deltas.length > 0) {
+    const timestamp = Date.now();
+    const members = deltas.map((delta) => ({
+      score: timestamp,
+      member: `${uuidv4()}:${JSON.stringify(delta)}`,
+    }));
+    await redis.zAdd(deltaKey, ...members);
+  }
 
   res.status(200).send("OK");
 });
