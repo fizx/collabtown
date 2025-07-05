@@ -30,12 +30,15 @@ async function pollForDeltas() {
   const response = await fetch(`/api/deltas?since=${lastSyncTimestamp}`);
   if (response.ok) {
     const data = await response.json();
-    lastSyncTimestamp = data.timestamp;
-    if (editorActions && data.deltas.length > 0) {
+    const newTimestamp = data.timestamp;
+
+    if (data.deltas.length > 0) {
       data.deltas.forEach((delta: TilemapAction) => {
-        editorActions.applyRemoteDelta(delta);
+        editorActions!.applyRemoteDelta(delta);
       });
     }
+
+    lastSyncTimestamp = newTimestamp;
   }
 }
 
