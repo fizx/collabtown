@@ -11,7 +11,7 @@ import "./style.css";
 let editorActions: EditorActions | null = null;
 const deltaQueue: TilemapAction[] = [];
 let debounceTimer: number | null = null;
-let lastSyncTimestamp = 0;
+let lastSyncId = 0;
 
 function sendDeltas() {
   if (deltaQueue.length === 0) return;
@@ -27,18 +27,17 @@ function sendDeltas() {
 async function pollForDeltas() {
   if (!editorActions) return;
 
-  const response = await fetch(`/api/deltas?since=${lastSyncTimestamp}`);
+  const response = await fetch(`/api/deltas?since=${lastSyncId}`);
   if (response.ok) {
     const data = await response.json();
-    const newTimestamp = data.timestamp;
-
     if (data.deltas.length > 0) {
-      data.deltas.forEach((delta: TilemapAction) => {
-        editorActions!.applyRemoteDelta(delta);
+      data.deltas.forEach((item: { id: number; delta: TilemapAction }) => {
+        editorActions!.applyRemoteDelta(item.delta);
+        if (item.id > lastSyncId) {
+          lastSyncId = item.id;
+        }
       });
     }
-
-    lastSyncTimestamp = newTimestamp;
   }
 }
 
@@ -47,7 +46,6 @@ async function main() {
     fetch("/town.json").then((res) => res.json()),
     fetch("/api/init").then((res) => res.json()),
   ]);
-  lastSyncTimestamp = initData.timestamp;
 
   mount("#root", {
     config,

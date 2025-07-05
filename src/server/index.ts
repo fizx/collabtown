@@ -42,6 +42,7 @@ function initializeTileConfig() {
 
 const getTilemapKey = (postId: string) => `tilemap:${postId}`;
 const getDeltaLogKey = (postId: string) => `deltalog:${postId}`;
+const getDeltaCounterKey = (postId: string) => `delta:id:${postId}`;
 
 app.get("/api/init", async (req, res): Promise<any> => {
   const currentContext = context;
@@ -101,25 +102,30 @@ app.get("/api/deltas", async (req, res): Promise<any> => {
     return res.status(400).send("Missing context or postId");
   }
   const { postId } = currentContext;
-  const since = req.query.since as string;
+  const since = parseInt(req.query.since as string, 10) || 0;
 
-  const deltas = await redis.zRange(
+  const results = await redis.zRange(
     getDeltaLogKey(postId),
     `(${since}`,
     "+inf",
     { by: "score" }
   );
 
-  res.json({
-    deltas: deltas
-      .map((item) => {
-        const parts = item.member.split(":");
-        if (parts.length > 1) {
-          return JSON.parse(parts.slice(1).join(":"));
-        }
+  const deltas = results
+    .map((item) => {
+      try {
+        return {
+          id: item.score,
+          delta: JSON.parse(item.member),
+        };
+      } catch (e) {
         return null;
-      })
-      .filter(Boolean),
+      }
+    })
+    .filter(Boolean) as { id: number; delta: TilemapAction }[];
+
+  res.json({
+    deltas,
     timestamp: Date.now(),
   });
 });
@@ -132,8 +138,13 @@ app.post("/api/deltas", async (req, res): Promise<any> => {
   const { postId } = currentContext;
 
   const deltas = req.body as TilemapAction[];
+  console.log(
+    `[server] Received ${deltas.length} deltas for ${postId}:`,
+    JSON.stringify(deltas)
+  );
   const key = getTilemapKey(postId);
   const deltaKey = getDeltaLogKey(postId);
+  const deltaCounterKey = getDeltaCounterKey(postId);
 
   if (!tileConfig.mapSize || tileConfig.mapSize === "infinite") {
     return res.status(500).send("Invalid map size");
@@ -167,10 +178,10 @@ app.post("/api/deltas", async (req, res): Promise<any> => {
   await redis.set(key, buffer.toString("binary"));
 
   if (deltas.length > 0) {
-    const timestamp = Date.now();
-    const members = deltas.map((delta) => ({
-      score: timestamp,
-      member: `${uuidv4()}:${JSON.stringify(delta)}`,
+    const firstId = await redis.incrBy(deltaCounterKey, deltas.length);
+    const members = deltas.map((delta, i) => ({
+      score: firstId - deltas.length + 1 + i,
+      member: JSON.stringify(delta),
     }));
     await redis.zAdd(deltaKey, ...members);
   }
