@@ -1,42 +1,48 @@
-import { mount, TileConfig, TilemapState } from "tilarium";
+import {
+  mount,
+  TileConfig,
+  TilemapState,
+  TilemapAction,
+  EditorActions,
+} from "tilarium";
 import "tilarium/dist/TilemapEditor.css";
 import "./style.css";
 
-let config: TileConfig | null = null;
-let initialState: TilemapState | null = null;
+const deltaQueue: TilemapAction[] = [];
+let debounceTimer: number | null = null;
 
-const render = () => {
-  if (config && initialState) {
-    mount("#root", {
-      config,
-      initialState,
-      onStateChange: (state) => {
-        // Here you would save the state to your backend
-        console.log("state changed", state);
-      },
-    });
+function sendDeltas() {
+  if (deltaQueue.length === 0) {
+    return;
   }
-};
 
-fetch("/town.json")
-  .then((res) => res.json())
-  .then((data) => {
-    config = data;
-    render();
-  });
+  const deltas = [...deltaQueue];
+  deltaQueue.length = 0;
 
-fetch("http://localhost:3000/tilemap.json")
-  .then((res) => res.json())
-  .then((data) => {
-    initialState = data;
-    render();
-  })
-  .catch(() => {
-    // If the tilemap doesn't exist, we can start with an empty state.
-    initialState = {
-      placedTiles: [],
-      tileToReplace: null,
-      backgroundTileId: null,
-    };
-    render();
+  fetch("/api/deltas", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(deltas),
   });
+}
+
+async function main() {
+  const [config, initialState] = await Promise.all([
+    fetch("/town.json").then((res) => res.json()),
+    fetch("/api/init").then((res) => res.json()),
+  ]);
+
+  mount("#root", {
+    config,
+    initialState,
+    onStateChange: (state, delta) => {
+      deltaQueue.push(delta);
+      if (debounceTimer) {
+        clearTimeout(debounceTimer);
+      }
+      debounceTimer = window.setTimeout(sendDeltas, 1000);
+    },
+  });
+}
+
+main();
