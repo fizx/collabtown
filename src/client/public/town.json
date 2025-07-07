@@ -124,7 +124,7 @@
       "zIndex": 1,
       "type": "tile",
       "spritesheet": {
-        "x": 48,
+        "x": 64,
         "y": 32,
         "width": 16,
         "height": 16
@@ -172,7 +172,7 @@
       "zIndex": 1,
       "type": "tile",
       "spritesheet": {
-        "x": 64,
+        "x": 48,
         "y": 32,
         "width": 16,
         "height": 16

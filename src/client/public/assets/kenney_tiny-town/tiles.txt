@@ -25,8 +25,8 @@
 24	dirt-ENS
 25	dirt-SWEN
 26	dirt-WNS
-27	forest_green-S
-28	forest_fall-S
+27	forest_fall-S
+28	forest_green-S
 29	mushrooms
 30	forest_green-NE
 31	forest_green-N
