@@ -1270,8 +1270,8 @@
         "height": 16
       }
     },
-    "wall_wood:shutters": {
-      "displayName": "wall_wood:shutters",
+    "wall_wood:shutters-EW": {
+      "displayName": "wall_wood:shutters-EW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 2,
       "type": "tile",
@@ -1283,11 +1283,11 @@
       },
       "autotile": {
         "group": "wall_wood",
-        "neighbors": ""
+        "neighbors": "EW"
       }
     },
-    "wall_wood:door_closed": {
-      "displayName": "wall_wood:door_closed",
+    "wall_wood:door_closed-EW": {
+      "displayName": "wall_wood:door_closed-EW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 2,
       "type": "tile",
@@ -1299,11 +1299,11 @@
       },
       "autotile": {
         "group": "wall_wood",
-        "neighbors": ""
+        "neighbors": "EW"
       }
     },
-    "wall_wood:double_door_closed_left": {
-      "displayName": "wall_wood:double_door_closed_left",
+    "wall_wood:double_door_closed_left-EW": {
+      "displayName": "wall_wood:double_door_closed_left-EW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 2,
       "type": "tile",
@@ -1315,11 +1315,11 @@
       },
       "autotile": {
         "group": "wall_wood",
-        "neighbors": ""
+        "neighbors": "EW"
       }
     },
-    "wall_wood:double_door_closed_right": {
-      "displayName": "wall_wood:double_door_closed_right",
+    "wall_wood:double_door_closed_right-EW": {
+      "displayName": "wall_wood:double_door_closed_right-EW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 2,
       "type": "tile",
@@ -1331,11 +1331,11 @@
       },
       "autotile": {
         "group": "wall_wood",
-        "neighbors": ""
+        "neighbors": "EW"
       }
     },
-    "wall_stone:shutters": {
-      "displayName": "wall_stone:shutters",
+    "wall_stone:shutters-EW": {
+      "displayName": "wall_stone:shutters-EW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 2,
       "type": "tile",
@@ -1347,11 +1347,11 @@
       },
       "autotile": {
         "group": "wall_stone",
-        "neighbors": ""
+        "neighbors": "EW"
       }
     },
-    "wall_stone:door_closed": {
-      "displayName": "wall_stone:door_closed",
+    "wall_stone:door_closed-EW": {
+      "displayName": "wall_stone:door_closed-EW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 2,
       "type": "tile",
@@ -1363,11 +1363,11 @@
       },
       "autotile": {
         "group": "wall_stone",
-        "neighbors": ""
+        "neighbors": "EW"
       }
     },
-    "wall_stone:double_door_closed_left": {
-      "displayName": "wall_stone:double_door_closed_left",
+    "wall_stone:double_door_closed_left-EW": {
+      "displayName": "wall_stone:double_door_closed_left-EW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 2,
       "type": "tile",
@@ -1379,11 +1379,11 @@
       },
       "autotile": {
         "group": "wall_stone",
-        "neighbors": ""
+        "neighbors": "EW"
       }
     },
-    "wall_stone:double_door_closed_right": {
-      "displayName": "wall_stone:double_door_closed_right",
+    "wall_stone:double_door_closed_right-EW": {
+      "displayName": "wall_stone:double_door_closed_right-EW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 2,
       "type": "tile",
@@ -1395,7 +1395,7 @@
       },
       "autotile": {
         "group": "wall_stone",
-        "neighbors": ""
+        "neighbors": "EW"
       }
     },
     "well-S": {
@@ -2065,18 +2065,18 @@
         "wall_stone-EW",
         "wall_stone-W",
         "wall_stone:door-EW",
-        "wall_stone:door_closed",
-        "wall_stone:double_door_closed_left",
-        "wall_stone:double_door_closed_right",
-        "wall_stone:shutters",
+        "wall_stone:door_closed-EW",
+        "wall_stone:double_door_closed_left-EW",
+        "wall_stone:double_door_closed_right-EW",
+        "wall_stone:shutters-EW",
         "wall_wood-E",
         "wall_wood-EW",
         "wall_wood-W",
         "wall_wood:door-EW",
-        "wall_wood:door_closed",
-        "wall_wood:double_door_closed_left",
-        "wall_wood:double_door_closed_right",
-        "wall_wood:shutters",
+        "wall_wood:door_closed-EW",
+        "wall_wood:double_door_closed_left-EW",
+        "wall_wood:double_door_closed_right-EW",
+        "wall_wood:shutters-EW",
         "well-N",
         "well-S"
       ],
