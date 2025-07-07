@@ -11,9 +11,8 @@ import {
 import { v4 as uuidv4 } from "uuid";
 import townConfigJSON from "../client/public/town.json";
 
-export type PlacedTilesDelta = {
-  added: PlacedTile[];
-  removed: { x: number; y: number; tileId: string }[];
+export type TilemapDelta = {
+  [key: string]: string | null;
 };
 
 const app = express();
@@ -45,7 +44,7 @@ function initializeTileConfig() {
   }
 }
 
-const getTilemapKey = (postId: string) => `tilemap:${postId}`;
+const getTilemapKey = (postId: string) => `tilemap:${postId}:v2`;
 const getDeltaLogKey = (postId: string) => `deltalog:${postId}`;
 const getDeltaCounterKey = (postId: string) => `delta:id:${postId}`;
 
@@ -60,45 +59,22 @@ app.get("/api/init", async (req, res): Promise<any> => {
   const deltaCounterKey = getDeltaCounterKey(postId);
 
   const [tilemapData, lastDeltaIdStr] = await Promise.all([
-    redis.get(key),
+    redis.hGetAll(key),
     redis.get(deltaCounterKey),
   ]);
 
-  let finalTilemapData = tilemapData;
-
-  if (!finalTilemapData) {
-    if (!tileConfig.mapSize || tileConfig.mapSize === "infinite") {
-      return res.status(500).send("Invalid map size");
-    }
-    const { width, height } = tileConfig.mapSize;
-    const size = width * height * NUM_LAYERS;
-    const emptyBuffer = Buffer.alloc(size);
-    await redis.set(key, emptyBuffer.toString("binary"));
-    finalTilemapData = emptyBuffer.toString("binary");
-  }
-
   const placedTiles: PlacedTile[] = [];
-  const { width, height } = tileConfig.mapSize as {
-    width: number;
-    height: number;
-  };
-  const buffer = Buffer.from(finalTilemapData, "binary");
-  for (let y = 0; y < height; y++) {
-    for (let x = 0; x < width; x++) {
-      for (let z = 0; z < NUM_LAYERS; z++) {
-        const offset = (y * width + x) * NUM_LAYERS + z;
-        const numericId = buffer.readUInt8(offset);
-        if (numericId !== 0) {
-          const tileInfo = numericIdToTileId.get(numericId);
-          if (tileInfo) {
-            placedTiles.push({
-              x,
-              y,
-              tileId: tileInfo.id,
-              source: "initial",
-            });
-          }
-        }
+  if (tilemapData) {
+    for (const compositeKey in tilemapData) {
+      const tileId = tilemapData[compositeKey];
+      const [x, y] = compositeKey.split("-").map(Number);
+      if (!isNaN(x) && !isNaN(y) && tileId) {
+        placedTiles.push({
+          x,
+          y,
+          tileId,
+          source: "initial",
+        });
       }
     }
   }
@@ -132,15 +108,37 @@ app.get("/api/deltas", async (req, res): Promise<any> => {
   const deltas = results
     .map((item) => {
       try {
+        let delta = JSON.parse(item.member);
+
+        // Check for old format and convert if necessary to prevent crashes
+        if (delta.added && delta.removed) {
+          const newDelta: TilemapDelta = {};
+          for (const tile of delta.added) {
+            const tileDef = tileConfig.tiles[tile.tileId];
+            if (tileDef) {
+              const key = `${tile.x}-${tile.y}-${tileDef.zIndex}`;
+              newDelta[key] = tile.tileId;
+            }
+          }
+          for (const tile of delta.removed) {
+            const tileDef = tileConfig.tiles[tile.tileId];
+            if (tileDef) {
+              const key = `${tile.x}-${tile.y}-${tileDef.zIndex}`;
+              newDelta[key] = null;
+            }
+          }
+          delta = newDelta;
+        }
+
         return {
           id: item.score,
-          delta: JSON.parse(item.member),
+          delta,
         };
       } catch (e) {
         return null;
       }
     })
-    .filter(Boolean) as { id: number; delta: PlacedTilesDelta }[];
+    .filter(Boolean) as { id: number; delta: TilemapDelta }[];
 
   res.json({
     deltas,
@@ -155,44 +153,40 @@ app.post("/api/deltas", async (req, res): Promise<any> => {
   }
   const { postId } = currentContext;
 
-  const delta = req.body as PlacedTilesDelta;
+  const delta = req.body as TilemapDelta;
   console.log(`[server] Received delta for ${postId}:`, JSON.stringify(delta));
   const key = getTilemapKey(postId);
   const deltaKey = getDeltaLogKey(postId);
   const deltaCounterKey = getDeltaCounterKey(postId);
 
-  if (!tileConfig.mapSize || tileConfig.mapSize === "infinite") {
-    return res.status(500).send("Invalid map size");
-  }
-  const { width, height } = tileConfig.mapSize;
+  const tilesToAdd: { [key: string]: string } = {};
+  const tilesToRemove: string[] = [];
 
-  const tilemapData = await redis.get(key);
-  const buffer = tilemapData
-    ? Buffer.from(tilemapData, "binary")
-    : Buffer.alloc(width * height * NUM_LAYERS);
-
-  for (const tile of delta.added) {
-    const { x, y, tileId } = tile;
-    const numericId = tileIdToNumericId.get(tileId);
-    const tileDef = tileConfig.tiles[tileId];
-    if (numericId && tileDef && typeof tileDef.zIndex === "number") {
-      const offset = (y * width + x) * NUM_LAYERS + tileDef.zIndex;
-      buffer.writeUInt8(numericId, offset);
+  for (const compositeKey in delta) {
+    const coords = compositeKey.split("-").map(Number);
+    if (
+      coords.length === 3 &&
+      !isNaN(coords[0]) &&
+      !isNaN(coords[1]) &&
+      !isNaN(coords[2])
+    ) {
+      const tileId = delta[compositeKey];
+      if (tileId === null) {
+        tilesToRemove.push(compositeKey);
+      } else {
+        tilesToAdd[compositeKey] = tileId;
+      }
     }
   }
 
-  for (const tile of delta.removed) {
-    const { x, y, tileId } = tile;
-    const tileDef = tileConfig.tiles[tileId];
-    if (tileDef && typeof tileDef.zIndex === "number") {
-      const offset = (y * width + x) * NUM_LAYERS + tileDef.zIndex;
-      buffer.writeUInt8(0, offset);
-    }
+  if (Object.keys(tilesToAdd).length > 0) {
+    await redis.hSet(key, tilesToAdd);
+  }
+  if (tilesToRemove.length > 0) {
+    await redis.hDel(key, tilesToRemove);
   }
 
-  await redis.set(key, buffer.toString("binary"));
-
-  if (delta.added.length > 0 || delta.removed.length > 0) {
+  if (Object.keys(delta).length > 0) {
     const deltaId = await redis.incrBy(deltaCounterKey, 1);
     await redis.zAdd(deltaKey, {
       score: deltaId,
