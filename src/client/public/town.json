@@ -6,8 +6,8 @@
     "height": 32
   },
   "tiles": {
-    "grass_smooth": {
-      "displayName": "grass_smooth",
+    "grass-SWEN": {
+      "displayName": "grass-SWEN",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 0,
       "type": "tile",
@@ -16,10 +16,14 @@
         "y": 0,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "grass",
+        "neighbors": "SWEN"
       }
     },
-    "grass_rough": {
-      "displayName": "grass_rough",
+    "grass:rough-SWEN": {
+      "displayName": "grass:rough-SWEN",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 0,
       "type": "tile",
@@ -28,10 +32,14 @@
         "y": 0,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "grass",
+        "neighbors": "SWEN"
       }
     },
-    "grass_flowers": {
-      "displayName": "grass_flowers",
+    "grass:flowers-SWEN": {
+      "displayName": "grass:flowers-SWEN",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 0,
       "type": "tile",
@@ -40,10 +48,14 @@
         "y": 0,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "grass",
+        "neighbors": "SWEN"
       }
     },
-    "tree_fall_tall_N": {
-      "displayName": "tree_fall_tall_N",
+    "tree_fall:tall-S": {
+      "displayName": "tree_fall:tall-S",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 1,
       "type": "tile",
@@ -52,10 +64,14 @@
         "y": 0,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "tree_fall",
+        "neighbors": "S"
       }
     },
-    "tree_green_tall_N": {
-      "displayName": "tree_green_tall_N",
+    "tree_green:tall-S": {
+      "displayName": "tree_green:tall-S",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 1,
       "type": "tile",
@@ -64,10 +80,14 @@
         "y": 0,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "tree_green",
+        "neighbors": "S"
       }
     },
-    "tree_bushy_N": {
-      "displayName": "tree_bushy_N",
+    "tree_green:bushy-S": {
+      "displayName": "tree_green:bushy-S",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 1,
       "type": "tile",
@@ -76,10 +96,14 @@
         "y": 0,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "tree_green",
+        "neighbors": "S"
       }
     },
-    "tree_green_cluster_NW": {
-      "displayName": "tree_green_cluster_NW",
+    "forest_green-SE": {
+      "displayName": "forest_green-SE",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 1,
       "type": "tile",
@@ -88,22 +112,30 @@
         "y": 0,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "forest_green",
+        "neighbors": "SE"
       }
     },
-    "tree_green_cluster_N": {
-      "displayName": "tree_green_cluster_N",
+    "forest_green-S": {
+      "displayName": "forest_green-S",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 1,
       "type": "tile",
       "spritesheet": {
-        "x": 112,
-        "y": 0,
+        "x": 48,
+        "y": 32,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "forest_green",
+        "neighbors": "S"
       }
     },
-    "tree_green_cluster_NE": {
-      "displayName": "tree_green_cluster_NE",
+    "forest_green-SW": {
+      "displayName": "forest_green-SW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 1,
       "type": "tile",
@@ -112,10 +144,14 @@
         "y": 0,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "forest_green",
+        "neighbors": "SW"
       }
     },
-    "tree_fall_cluster_NW": {
-      "displayName": "tree_fall_cluster_NW",
+    "forest_fall-SE": {
+      "displayName": "forest_fall-SE",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 1,
       "type": "tile",
@@ -124,22 +160,30 @@
         "y": 0,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "forest_fall",
+        "neighbors": "SE"
       }
     },
-    "tree_fall_cluster_N": {
-      "displayName": "tree_fall_cluster_N",
+    "forest_fall-S": {
+      "displayName": "forest_fall-S",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 1,
       "type": "tile",
       "spritesheet": {
-        "x": 160,
-        "y": 0,
+        "x": 64,
+        "y": 32,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "forest_fall",
+        "neighbors": "S"
       }
     },
-    "tree_fall_cluster_NE": {
-      "displayName": "tree_fall_cluster_NE",
+    "forest_fall-SW": {
+      "displayName": "forest_fall-SW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 1,
       "type": "tile",
@@ -148,10 +192,14 @@
         "y": 0,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "forest_fall",
+        "neighbors": "SW"
       }
     },
-    "dirt_NW": {
-      "displayName": "dirt_NW",
+    "dirt-SE": {
+      "displayName": "dirt-SE",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 0,
       "type": "tile",
@@ -160,10 +208,14 @@
         "y": 16,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "dirt",
+        "neighbors": "SE"
       }
     },
-    "dirt_N": {
-      "displayName": "dirt_N",
+    "dirt-SWE": {
+      "displayName": "dirt-SWE",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 0,
       "type": "tile",
@@ -172,10 +224,14 @@
         "y": 16,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "dirt",
+        "neighbors": "SWE"
       }
     },
-    "dirt_NE": {
-      "displayName": "dirt_NE",
+    "dirt-SW": {
+      "displayName": "dirt-SW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 0,
       "type": "tile",
@@ -184,10 +240,14 @@
         "y": 16,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "dirt",
+        "neighbors": "SW"
       }
     },
-    "tree_fall_S": {
-      "displayName": "tree_fall_S",
+    "tree_fall-N": {
+      "displayName": "tree_fall-N",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 1,
       "type": "tile",
@@ -196,10 +256,14 @@
         "y": 16,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "tree_fall",
+        "neighbors": "N"
       }
     },
-    "tree_green_S": {
-      "displayName": "tree_green_S",
+    "tree_green-N": {
+      "displayName": "tree_green-N",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 1,
       "type": "tile",
@@ -208,6 +272,10 @@
         "y": 16,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "tree_green",
+        "neighbors": "N"
       }
     },
     "vines": {
@@ -222,8 +290,8 @@
         "height": 16
       }
     },
-    "tree_green_cluster_W": {
-      "displayName": "tree_green_cluster_W",
+    "forest_green-E": {
+      "displayName": "forest_green-E",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 1,
       "type": "tile",
@@ -232,10 +300,14 @@
         "y": 16,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "forest_green",
+        "neighbors": "E"
       }
     },
-    "tree_green_cluster": {
-      "displayName": "tree_green_cluster",
+    "forest_green-SWEN": {
+      "displayName": "forest_green-SWEN",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 1,
       "type": "tile",
@@ -244,10 +316,14 @@
         "y": 16,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "forest_green",
+        "neighbors": "SWEN"
       }
     },
-    "tree_green_cluster_E": {
-      "displayName": "tree_green_cluster_E",
+    "forest_green-W": {
+      "displayName": "forest_green-W",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 1,
       "type": "tile",
@@ -256,10 +332,14 @@
         "y": 16,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "forest_green",
+        "neighbors": "W"
       }
     },
-    "tree_fall_cluster_W": {
-      "displayName": "tree_fall_cluster_W",
+    "forest_fall-E": {
+      "displayName": "forest_fall-E",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 1,
       "type": "tile",
@@ -268,10 +348,14 @@
         "y": 16,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "forest_fall",
+        "neighbors": "E"
       }
     },
-    "tree_fall_cluster": {
-      "displayName": "tree_fall_cluster",
+    "forest_fall-SWEN": {
+      "displayName": "forest_fall-SWEN",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 1,
       "type": "tile",
@@ -280,10 +364,14 @@
         "y": 16,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "forest_fall",
+        "neighbors": "SWEN"
       }
     },
-    "tree_fall_cluster_E": {
-      "displayName": "tree_fall_cluster_E",
+    "forest_fall-W": {
+      "displayName": "forest_fall-W",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 1,
       "type": "tile",
@@ -292,10 +380,14 @@
         "y": 16,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "forest_fall",
+        "neighbors": "W"
       }
     },
-    "dirt_W": {
-      "displayName": "dirt_W",
+    "dirt-ENS": {
+      "displayName": "dirt-ENS",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 0,
       "type": "tile",
@@ -304,10 +396,14 @@
         "y": 32,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "dirt",
+        "neighbors": "ENS"
       }
     },
-    "dirt": {
-      "displayName": "dirt",
+    "dirt-SWEN": {
+      "displayName": "dirt-SWEN",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 0,
       "type": "tile",
@@ -316,10 +412,14 @@
         "y": 32,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "dirt",
+        "neighbors": "SWEN"
       }
     },
-    "dirt_E ": {
-      "displayName": "dirt_E ",
+    "dirt-WNS": {
+      "displayName": "dirt-WNS",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 0,
       "type": "tile",
@@ -328,30 +428,10 @@
         "y": 32,
         "width": 16,
         "height": 16
-      }
-    },
-    "tree_green": {
-      "displayName": "tree_green",
-      "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 1,
-      "type": "tile",
-      "spritesheet": {
-        "x": 48,
-        "y": 32,
-        "width": 16,
-        "height": 16
-      }
-    },
-    "tree_fall": {
-      "displayName": "tree_fall",
-      "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 1,
-      "type": "tile",
-      "spritesheet": {
-        "x": 64,
-        "y": 32,
-        "width": 16,
-        "height": 16
+      },
+      "autotile": {
+        "group": "dirt",
+        "neighbors": "WNS"
       }
     },
     "mushrooms": {
@@ -366,8 +446,8 @@
         "height": 16
       }
     },
-    "tree_green_cluster_SW": {
-      "displayName": "tree_green_cluster_SW",
+    "forest_green-NE": {
+      "displayName": "forest_green-NE",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 1,
       "type": "tile",
@@ -376,10 +456,14 @@
         "y": 32,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "forest_green",
+        "neighbors": "NE"
       }
     },
-    "tree_green_cluster_S": {
-      "displayName": "tree_green_cluster_S",
+    "forest_green-N": {
+      "displayName": "forest_green-N",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 1,
       "type": "tile",
@@ -388,10 +472,14 @@
         "y": 32,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "forest_green",
+        "neighbors": "N"
       }
     },
-    "tree_green_cluster_SE": {
-      "displayName": "tree_green_cluster_SE",
+    "forest_green-NW": {
+      "displayName": "forest_green-NW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 1,
       "type": "tile",
@@ -400,10 +488,14 @@
         "y": 32,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "forest_green",
+        "neighbors": "NW"
       }
     },
-    "tree_fall_cluster_SW": {
-      "displayName": "tree_fall_cluster_SW",
+    "forest_fall-NE": {
+      "displayName": "forest_fall-NE",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 1,
       "type": "tile",
@@ -412,10 +504,14 @@
         "y": 32,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "forest_fall",
+        "neighbors": "NE"
       }
     },
-    "tree_fall_cluster_S": {
-      "displayName": "tree_fall_cluster_S",
+    "forest_fall-N": {
+      "displayName": "forest_fall-N",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 1,
       "type": "tile",
@@ -424,10 +520,14 @@
         "y": 32,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "forest_fall",
+        "neighbors": "N"
       }
     },
-    "tree_fall_cluster_SE": {
-      "displayName": "tree_fall_cluster_SE",
+    "forest_fall-NW": {
+      "displayName": "forest_fall-NW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 1,
       "type": "tile",
@@ -436,10 +536,14 @@
         "y": 32,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "forest_fall",
+        "neighbors": "NW"
       }
     },
-    "dirt_SW": {
-      "displayName": "dirt_SW",
+    "dirt-NE": {
+      "displayName": "dirt-NE",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 0,
       "type": "tile",
@@ -448,10 +552,14 @@
         "y": 48,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "dirt",
+        "neighbors": "NE"
       }
     },
-    "dirt_S": {
-      "displayName": "dirt_S",
+    "dirt-NEW": {
+      "displayName": "dirt-NEW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 0,
       "type": "tile",
@@ -460,10 +568,14 @@
         "y": 48,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "dirt",
+        "neighbors": "NEW"
       }
     },
-    "dirt_SE": {
-      "displayName": "dirt_SE",
+    "dirt-NW": {
+      "displayName": "dirt-NW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 0,
       "type": "tile",
@@ -472,10 +584,14 @@
         "y": 48,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "dirt",
+        "neighbors": "NW"
       }
     },
-    "dirt_alt1": {
-      "displayName": "dirt_alt1",
+    "dirt:alt1-SWEN": {
+      "displayName": "dirt:alt1-SWEN",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 0,
       "type": "tile",
@@ -486,8 +602,8 @@
         "height": 16
       }
     },
-    "dirt_alt2": {
-      "displayName": "dirt_alt2",
+    "dirt:alt2-SWEN": {
+      "displayName": "dirt:alt2-SWEN",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 0,
       "type": "tile",
@@ -498,8 +614,8 @@
         "height": 16
       }
     },
-    "dirt_alt3": {
-      "displayName": "dirt_alt3",
+    "dirt:alt3-SWEN": {
+      "displayName": "dirt:alt3-SWEN",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 0,
       "type": "tile",
@@ -510,8 +626,8 @@
         "height": 16
       }
     },
-    "dirt_alt4": {
-      "displayName": "dirt_alt4",
+    "dirt:alt4-SWEN": {
+      "displayName": "dirt:alt4-SWEN",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 0,
       "type": "tile",
@@ -522,8 +638,8 @@
         "height": 16
       }
     },
-    "cobblestone_on_grass": {
-      "displayName": "cobblestone_on_grass",
+    "grass:cobblestone-SWEN": {
+      "displayName": "grass:cobblestone-SWEN",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 0,
       "type": "tile",
@@ -532,58 +648,78 @@
         "y": 48,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "grass",
+        "neighbors": "SWEN"
       }
     },
-    "fence_NW": {
-      "displayName": "fence_NW",
+    "fence-SE": {
+      "displayName": "fence-SE",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 2,
+      "zIndex": 1,
       "type": "tile",
       "spritesheet": {
         "x": 128,
         "y": 48,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "fence",
+        "neighbors": "SE"
       }
     },
-    "fence_H": {
-      "displayName": "fence_H",
+    "fence-EW": {
+      "displayName": "fence-EW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 2,
+      "zIndex": 1,
       "type": "tile",
       "spritesheet": {
         "x": 144,
-        "y": 48,
+        "y": 96,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "fence",
+        "neighbors": "EW"
       }
     },
-    "fence_NE": {
-      "displayName": "fence_NE",
+    "fence-SW": {
+      "displayName": "fence-SW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 2,
+      "zIndex": 1,
       "type": "tile",
       "spritesheet": {
         "x": 160,
         "y": 48,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "fence",
+        "neighbors": "SW"
       }
     },
-    "fence_TOP": {
-      "displayName": "fence_TOP",
+    "fence-S": {
+      "displayName": "fence-S",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 2,
+      "zIndex": 1,
       "type": "tile",
       "spritesheet": {
         "x": 176,
         "y": 48,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "fence",
+        "neighbors": "S"
       }
     },
-    "roof_slate": {
-      "displayName": "roof_slate",
+    "roof_slate-SE": {
+      "displayName": "roof_slate-SE",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 2,
       "type": "tile",
@@ -592,10 +728,14 @@
         "y": 64,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "roof_slate",
+        "neighbors": "SE"
       }
     },
-    "roof_slate_alt1": {
-      "displayName": "roof_slate_alt1",
+    "roof_slate-SEW": {
+      "displayName": "roof_slate-SEW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 2,
       "type": "tile",
@@ -604,10 +744,14 @@
         "y": 64,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "roof_slate",
+        "neighbors": "SEW"
       }
     },
-    "roof_slate_alt2": {
-      "displayName": "roof_slate_alt2",
+    "roof_slate-SW": {
+      "displayName": "roof_slate-SW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 2,
       "type": "tile",
@@ -616,10 +760,14 @@
         "y": 64,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "roof_slate",
+        "neighbors": "SW"
       }
     },
-    "roof_slate_dormer": {
-      "displayName": "roof_slate_dormer",
+    "roof_slate:chimney-SEW": {
+      "displayName": "roof_slate:chimney-SEW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 2,
       "type": "tile",
@@ -628,10 +776,14 @@
         "y": 64,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "roof_slate",
+        "neighbors": "SEW"
       }
     },
-    "roof_tile": {
-      "displayName": "roof_tile",
+    "roof_tile-SE": {
+      "displayName": "roof_tile-SE",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 2,
       "type": "tile",
@@ -640,10 +792,14 @@
         "y": 64,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "roof_tile",
+        "neighbors": "SE"
       }
     },
-    "roof_tile_alt1": {
-      "displayName": "roof_tile_alt1",
+    "roof_tile-SEW": {
+      "displayName": "roof_tile-SEW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 2,
       "type": "tile",
@@ -652,10 +808,14 @@
         "y": 64,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "roof_tile",
+        "neighbors": "SEW"
       }
     },
-    "roof_tile_alt2": {
-      "displayName": "roof_tile_alt2",
+    "roof_tile-SW": {
+      "displayName": "roof_tile-SW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 2,
       "type": "tile",
@@ -664,10 +824,14 @@
         "y": 64,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "roof_tile",
+        "neighbors": "SW"
       }
     },
-    "roof_tile_dormer": {
-      "displayName": "roof_tile_dormer",
+    "roof_tile_:chimney-SEW": {
+      "displayName": "roof_tile_:chimney-SEW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 2,
       "type": "tile",
@@ -676,18 +840,26 @@
         "y": 64,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "roof_tile_",
+        "neighbors": "SEW"
       }
     },
-    "fence_W": {
-      "displayName": "fence_W",
+    "fence:left-SN": {
+      "displayName": "fence:left-SN",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 2,
+      "zIndex": 1,
       "type": "tile",
       "spritesheet": {
         "x": 128,
         "y": 64,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "fence",
+        "neighbors": "SN"
       }
     },
     "wheelbarrow": {
@@ -702,32 +874,40 @@
         "height": 16
       }
     },
-    "fence_E": {
-      "displayName": "fence_E",
+    "fence:right-SN": {
+      "displayName": "fence:right-SN",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 2,
+      "zIndex": 1,
       "type": "tile",
       "spritesheet": {
         "x": 160,
         "y": 64,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "fence",
+        "neighbors": "SN"
       }
     },
-    "fence_V": {
-      "displayName": "fence_V",
+    "fence:both-SN": {
+      "displayName": "fence:both-SN",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 2,
+      "zIndex": 1,
       "type": "tile",
       "spritesheet": {
         "x": 176,
         "y": 64,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "fence",
+        "neighbors": "SN"
       }
     },
-    "roof_slate_alt3": {
-      "displayName": "roof_slate_alt3",
+    "roof_slate-NE": {
+      "displayName": "roof_slate-NE",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 2,
       "type": "tile",
@@ -736,10 +916,14 @@
         "y": 80,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "roof_slate",
+        "neighbors": "NE"
       }
     },
-    "roof_slate_alt4": {
-      "displayName": "roof_slate_alt4",
+    "roof_slate-NEW": {
+      "displayName": "roof_slate-NEW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 2,
       "type": "tile",
@@ -748,10 +932,14 @@
         "y": 80,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "roof_slate",
+        "neighbors": "NEW"
       }
     },
-    "roof_slate_alt5": {
-      "displayName": "roof_slate_alt5",
+    "roof_slate-NW": {
+      "displayName": "roof_slate-NW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 2,
       "type": "tile",
@@ -760,10 +948,14 @@
         "y": 80,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "roof_slate",
+        "neighbors": "NW"
       }
     },
-    "roof_slate_peak": {
-      "displayName": "roof_slate_peak",
+    "roof_slate:peak-NEW": {
+      "displayName": "roof_slate:peak-NEW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 2,
       "type": "tile",
@@ -772,10 +964,14 @@
         "y": 80,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "roof_slate",
+        "neighbors": "NEW"
       }
     },
-    "roof_tile_alt3": {
-      "displayName": "roof_tile_alt3",
+    "roof_tile-NE": {
+      "displayName": "roof_tile-NE",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 2,
       "type": "tile",
@@ -784,10 +980,14 @@
         "y": 80,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "roof_tile",
+        "neighbors": "NE"
       }
     },
-    "roof_tile_alt4": {
-      "displayName": "roof_tile_alt4",
+    "roof_tile-NEW": {
+      "displayName": "roof_tile-NEW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 2,
       "type": "tile",
@@ -796,10 +996,14 @@
         "y": 80,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "roof_tile",
+        "neighbors": "NEW"
       }
     },
-    "roof_tile_alt5": {
-      "displayName": "roof_tile_alt5",
+    "roof_tile-NW": {
+      "displayName": "roof_tile-NW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 2,
       "type": "tile",
@@ -808,10 +1012,14 @@
         "y": 80,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "roof_tile",
+        "neighbors": "NW"
       }
     },
-    "roof_tile_peak": {
-      "displayName": "roof_tile_peak",
+    "roof_tile:peak-NEW": {
+      "displayName": "roof_tile:peak-NEW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 2,
       "type": "tile",
@@ -820,58 +1028,78 @@
         "y": 80,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "roof_tile",
+        "neighbors": "NEW"
       }
     },
-    "fence_SW": {
-      "displayName": "fence_SW",
+    "fence-NE": {
+      "displayName": "fence-NE",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 2,
+      "zIndex": 1,
       "type": "tile",
       "spritesheet": {
         "x": 128,
         "y": 80,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "fence",
+        "neighbors": "NE"
       }
     },
-    "fence_gate": {
-      "displayName": "fence_gate",
+    "fence:gate-EW": {
+      "displayName": "fence:gate-EW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 2,
+      "zIndex": 1,
       "type": "tile",
       "spritesheet": {
         "x": 144,
         "y": 80,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "fence",
+        "neighbors": "EW"
       }
     },
-    "fence_SE": {
-      "displayName": "fence_SE",
+    "fence-NW": {
+      "displayName": "fence-NW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 2,
+      "zIndex": 1,
       "type": "tile",
       "spritesheet": {
         "x": 160,
         "y": 80,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "fence",
+        "neighbors": "NW"
       }
     },
-    "fence_BOTTOM": {
-      "displayName": "fence_BOTTOM",
+    "fence-N": {
+      "displayName": "fence-N",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 2,
+      "zIndex": 1,
       "type": "tile",
       "spritesheet": {
         "x": 176,
         "y": 80,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "fence",
+        "neighbors": "N"
       }
     },
-    "wall_wood_W": {
-      "displayName": "wall_wood_W",
+    "wall_wood-E": {
+      "displayName": "wall_wood-E",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 2,
       "type": "tile",
@@ -880,10 +1108,14 @@
         "y": 96,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "wall_wood",
+        "neighbors": "E"
       }
     },
-    "wall_wood": {
-      "displayName": "wall_wood",
+    "wall_wood-EW": {
+      "displayName": "wall_wood-EW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 2,
       "type": "tile",
@@ -892,22 +1124,30 @@
         "y": 96,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "wall_wood",
+        "neighbors": "EW"
       }
     },
-    "door_wood_open": {
-      "displayName": "door_wood_open",
+    "wall_wood:door-EW": {
+      "displayName": "wall_wood:door-EW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 3,
+      "zIndex": 2,
       "type": "tile",
       "spritesheet": {
         "x": 32,
         "y": 96,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "wall_wood",
+        "neighbors": "EW"
       }
     },
-    "wall_wood_E": {
-      "displayName": "wall_wood_E",
+    "wall_wood-W": {
+      "displayName": "wall_wood-W",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 2,
       "type": "tile",
@@ -916,10 +1156,14 @@
         "y": 96,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "wall_wood",
+        "neighbors": "W"
       }
     },
-    "wall_stone_W": {
-      "displayName": "wall_stone_W",
+    "wall_stone-E": {
+      "displayName": "wall_stone-E",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 2,
       "type": "tile",
@@ -928,10 +1172,14 @@
         "y": 96,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "wall_stone",
+        "neighbors": "E"
       }
     },
-    "wall_stone": {
-      "displayName": "wall_stone",
+    "wall_stone-EW": {
+      "displayName": "wall_stone-EW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 2,
       "type": "tile",
@@ -940,22 +1188,30 @@
         "y": 96,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "wall_stone",
+        "neighbors": "EW"
       }
     },
-    "door_stone_open": {
-      "displayName": "door_stone_open",
+    "wall_stone:door-EW": {
+      "displayName": "wall_stone:door-EW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 3,
+      "zIndex": 2,
       "type": "tile",
       "spritesheet": {
         "x": 96,
         "y": 96,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "wall_stone",
+        "neighbors": "EW"
       }
     },
-    "wall_stone_E": {
-      "displayName": "wall_stone_E",
+    "wall_stone-W": {
+      "displayName": "wall_stone-W",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 2,
       "type": "tile",
@@ -964,42 +1220,42 @@
         "y": 96,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "wall_stone",
+        "neighbors": "W"
       }
     },
-    "fence_LEFT": {
-      "displayName": "fence_LEFT",
+    "fence-E": {
+      "displayName": "fence-E",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 2,
+      "zIndex": 1,
       "type": "tile",
       "spritesheet": {
         "x": 128,
         "y": 96,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "fence",
+        "neighbors": "E"
       }
     },
-    "fence_H_alt1": {
-      "displayName": "fence_H_alt1",
+    "fence-W": {
+      "displayName": "fence-W",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 2,
-      "type": "tile",
-      "spritesheet": {
-        "x": 144,
-        "y": 96,
-        "width": 16,
-        "height": 16
-      }
-    },
-    "fence_RIGHT": {
-      "displayName": "fence_RIGHT",
-      "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 2,
+      "zIndex": 1,
       "type": "tile",
       "spritesheet": {
         "x": 160,
         "y": 96,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "fence",
+        "neighbors": "W"
       }
     },
     "sign": {
@@ -1014,104 +1270,136 @@
         "height": 16
       }
     },
-    "window_wood_shutters": {
-      "displayName": "window_wood_shutters",
+    "wall_wood:shutters": {
+      "displayName": "wall_wood:shutters",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 3,
+      "zIndex": 2,
       "type": "tile",
       "spritesheet": {
         "x": 0,
         "y": 112,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "wall_wood",
+        "neighbors": ""
       }
     },
-    "door_wood_closed": {
-      "displayName": "door_wood_closed",
+    "wall_wood:door_closed": {
+      "displayName": "wall_wood:door_closed",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 3,
+      "zIndex": 2,
       "type": "tile",
       "spritesheet": {
         "x": 16,
         "y": 112,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "wall_wood",
+        "neighbors": ""
       }
     },
-    "door_wood_double_closed_LEFT": {
-      "displayName": "door_wood_double_closed_LEFT",
+    "wall_wood:double_door_closed_left": {
+      "displayName": "wall_wood:double_door_closed_left",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 3,
+      "zIndex": 2,
       "type": "tile",
       "spritesheet": {
         "x": 32,
         "y": 112,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "wall_wood",
+        "neighbors": ""
       }
     },
-    "door_wood_double_closed_RIGHT": {
-      "displayName": "door_wood_double_closed_RIGHT",
+    "wall_wood:double_door_closed_right": {
+      "displayName": "wall_wood:double_door_closed_right",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 3,
+      "zIndex": 2,
       "type": "tile",
       "spritesheet": {
         "x": 48,
         "y": 112,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "wall_wood",
+        "neighbors": ""
       }
     },
-    "window_stone_shutters": {
-      "displayName": "window_stone_shutters",
+    "wall_stone:shutters": {
+      "displayName": "wall_stone:shutters",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 3,
+      "zIndex": 2,
       "type": "tile",
       "spritesheet": {
         "x": 64,
         "y": 112,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "wall_stone",
+        "neighbors": ""
       }
     },
-    "door_stone_closed": {
-      "displayName": "door_stone_closed",
+    "wall_stone:door_closed": {
+      "displayName": "wall_stone:door_closed",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 3,
+      "zIndex": 2,
       "type": "tile",
       "spritesheet": {
         "x": 80,
         "y": 112,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "wall_stone",
+        "neighbors": ""
       }
     },
-    "door_stone_double_closed_LEFT": {
-      "displayName": "door_stone_double_closed_LEFT",
+    "wall_stone:double_door_closed_left": {
+      "displayName": "wall_stone:double_door_closed_left",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 3,
+      "zIndex": 2,
       "type": "tile",
       "spritesheet": {
         "x": 96,
         "y": 112,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "wall_stone",
+        "neighbors": ""
       }
     },
-    "door_stone_double_closed_RIGHT": {
-      "displayName": "door_stone_double_closed_RIGHT",
+    "wall_stone:double_door_closed_right": {
+      "displayName": "wall_stone:double_door_closed_right",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 3,
+      "zIndex": 2,
       "type": "tile",
       "spritesheet": {
         "x": 112,
         "y": 112,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "wall_stone",
+        "neighbors": ""
       }
     },
-    "well_N": {
-      "displayName": "well_N",
+    "well-S": {
+      "displayName": "well-S",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 1,
       "type": "tile",
@@ -1120,6 +1408,10 @@
         "y": 112,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "well",
+        "neighbors": "S"
       }
     },
     "coin": {
@@ -1158,92 +1450,120 @@
         "height": 16
       }
     },
-    "parapet_NW": {
-      "displayName": "parapet_NW",
+    "parapet-SE": {
+      "displayName": "parapet-SE",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 2,
+      "zIndex": 1,
       "type": "tile",
       "spritesheet": {
         "x": 0,
         "y": 128,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "parapet",
+        "neighbors": "SE"
       }
     },
-    "parapet_N": {
-      "displayName": "parapet_N",
+    "parapet-SEW": {
+      "displayName": "parapet-SEW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 2,
+      "zIndex": 1,
       "type": "tile",
       "spritesheet": {
         "x": 16,
         "y": 128,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "parapet",
+        "neighbors": "SEW"
       }
     },
-    "parapet_NE": {
-      "displayName": "parapet_NE",
+    "parapet-SW": {
+      "displayName": "parapet-SW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 2,
+      "zIndex": 1,
       "type": "tile",
       "spritesheet": {
         "x": 32,
         "y": 128,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "parapet",
+        "neighbors": "SW"
       }
     },
-    "parapet_LEFT": {
-      "displayName": "parapet_LEFT",
+    "parapet-E": {
+      "displayName": "parapet-E",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 2,
+      "zIndex": 1,
       "type": "tile",
       "spritesheet": {
         "x": 48,
         "y": 128,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "parapet",
+        "neighbors": "E"
       }
     },
-    "parapet_H": {
-      "displayName": "parapet_H",
+    "parapet-EW": {
+      "displayName": "parapet-EW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 2,
+      "zIndex": 1,
       "type": "tile",
       "spritesheet": {
         "x": 64,
         "y": 128,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "parapet",
+        "neighbors": "EW"
       }
     },
-    "parapet_RIGHT": {
-      "displayName": "parapet_RIGHT",
+    "parapet-W": {
+      "displayName": "parapet-W",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 2,
+      "zIndex": 1,
       "type": "tile",
       "spritesheet": {
         "x": 80,
         "y": 128,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "parapet",
+        "neighbors": "W"
       }
     },
-    "parapet_small": {
-      "displayName": "parapet_small",
+    "parapet": {
+      "displayName": "parapet",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 2,
+      "zIndex": 1,
       "type": "tile",
       "spritesheet": {
         "x": 96,
         "y": 128,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "parapet",
+        "neighbors": ""
       }
     },
-    "parapet_ladder": {
-      "displayName": "parapet_ladder",
+    "parapet_ladder-SEWN": {
+      "displayName": "parapet_ladder-SEWN",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 2,
       "type": "tile",
@@ -1252,10 +1572,14 @@
         "y": 128,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "parapet_ladder",
+        "neighbors": "SEWN"
       }
     },
-    "well_S": {
-      "displayName": "well_S",
+    "well-N": {
+      "displayName": "well-N",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 1,
       "type": "tile",
@@ -1264,6 +1588,10 @@
         "y": 128,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "well",
+        "neighbors": "N"
       }
     },
     "bomb": {
@@ -1302,20 +1630,24 @@
         "height": 16
       }
     },
-    "parapet_W": {
-      "displayName": "parapet_W",
+    "parapet-NES": {
+      "displayName": "parapet-NES",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 2,
+      "zIndex": 1,
       "type": "tile",
       "spritesheet": {
         "x": 0,
         "y": 144,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "parapet",
+        "neighbors": "NES"
       }
     },
-    "parapet": {
-      "displayName": "parapet",
+    "parapet-NEWS": {
+      "displayName": "parapet-NEWS",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 1,
       "type": "tile",
@@ -1324,46 +1656,62 @@
         "y": 144,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "parapet",
+        "neighbors": "NEWS"
       }
     },
-    "parapet_E": {
-      "displayName": "parapet_E",
+    "parapet-WNS": {
+      "displayName": "parapet-WNS",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 2,
+      "zIndex": 1,
       "type": "tile",
       "spritesheet": {
         "x": 32,
         "y": 144,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "parapet",
+        "neighbors": "WNS"
       }
     },
-    "porticulis_NW": {
-      "displayName": "porticulis_NW",
+    "arch:porticulis-SE": {
+      "displayName": "arch:porticulis-SE",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 3,
+      "zIndex": 1,
       "type": "tile",
       "spritesheet": {
         "x": 48,
         "y": 144,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "arch",
+        "neighbors": "SE"
       }
     },
-    "porticulis_NE": {
-      "displayName": "porticulis_NE",
+    "arch:porticulis-SW": {
+      "displayName": "arch:porticulis-SW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 3,
+      "zIndex": 1,
       "type": "tile",
       "spritesheet": {
         "x": 64,
         "y": 144,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "arch",
+        "neighbors": "SW"
       }
     },
-    "arch_NW": {
-      "displayName": "arch_NW",
+    "arch-SE": {
+      "displayName": "arch-SE",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 1,
       "type": "tile",
@@ -1372,10 +1720,14 @@
         "y": 144,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "arch",
+        "neighbors": "SE"
       }
     },
-    "arch_NE": {
-      "displayName": "arch_NE",
+    "arch-SW": {
+      "displayName": "arch-SW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
       "zIndex": 1,
       "type": "tile",
@@ -1384,6 +1736,10 @@
         "y": 144,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "arch",
+        "neighbors": "SW"
       }
     },
     "pickaxe": {
@@ -1446,64 +1802,84 @@
         "height": 16
       }
     },
-    "parapet_SW": {
-      "displayName": "parapet_SW",
+    "parapet-NE": {
+      "displayName": "parapet-NE",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 2,
+      "zIndex": 1,
       "type": "tile",
       "spritesheet": {
         "x": 0,
         "y": 160,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "parapet",
+        "neighbors": "NE"
       }
     },
-    "parapet_S": {
-      "displayName": "parapet_S",
+    "parapet-NEW": {
+      "displayName": "parapet-NEW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 2,
+      "zIndex": 1,
       "type": "tile",
       "spritesheet": {
         "x": 16,
         "y": 160,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "parapet",
+        "neighbors": "NEW"
       }
     },
-    "parapet_SE": {
-      "displayName": "parapet_SE",
+    "parapet-NW": {
+      "displayName": "parapet-NW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 2,
+      "zIndex": 1,
       "type": "tile",
       "spritesheet": {
         "x": 32,
         "y": 160,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "parapet",
+        "neighbors": "NW"
       }
     },
-    "porticulis_W": {
-      "displayName": "porticulis_W",
+    "arch-NE": {
+      "displayName": "arch-NE",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 3,
+      "zIndex": 1,
       "type": "tile",
       "spritesheet": {
         "x": 48,
         "y": 160,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "arch",
+        "neighbors": "NE"
       }
     },
-    "porticulis_E": {
-      "displayName": "porticulis_E",
+    "arch-NW": {
+      "displayName": "arch-NW",
       "src": "/assets/kenney_tiny-town/Tilemap/tilemap_packed.png",
-      "zIndex": 3,
+      "zIndex": 1,
       "type": "tile",
       "spritesheet": {
         "x": 64,
         "y": 160,
         "width": 16,
         "height": 16
+      },
+      "autotile": {
+        "group": "arch",
+        "neighbors": "NW"
       }
     },
     "castle_window": {
@@ -1592,166 +1968,185 @@
     }
   },
   "groups": {
-    "castles": {
-      "displayName": "castles",
+    "Decorations": {
+      "displayName": "Decorations",
       "tileIds": [
-        "arch_NE",
-        "arch_NW",
-        "castle_wall",
-        "castle_window",
-        "parapet_E",
-        "parapet_H",
-        "parapet_LEFT",
-        "parapet_N",
-        "parapet_NE",
-        "parapet_NW",
-        "parapet_RIGHT",
-        "parapet_S",
-        "parapet_SE",
-        "parapet_SW",
-        "parapet_W",
-        "parapet_ladder",
-        "parapet_small",
-        "porticulis_E",
-        "porticulis_NE",
-        "porticulis_NW",
-        "porticulis_W"
+        "beehive",
+        "log",
+        "sign",
+        "wheelbarrow"
+      ],
+      "autotileGroups": []
+    },
+    "Fences & Walls": {
+      "displayName": "Fences & Walls",
+      "tileIds": [
+        "fence-E",
+        "fence-EW",
+        "fence-EW",
+        "fence-N",
+        "fence-NE",
+        "fence-NW",
+        "fence-S",
+        "fence-SE",
+        "fence-SW",
+        "fence-W",
+        "fence:both-SN",
+        "fence:gate-EW",
+        "fence:left-SN",
+        "fence:right-SN"
+      ],
+      "autotileGroups": [
+        "fence"
       ]
     },
-    "fence": {
-      "displayName": "fence",
+    "Items": {
+      "displayName": "Items",
       "tileIds": [
-        "fence_BOTTOM",
-        "fence_E",
-        "fence_H",
-        "fence_H_alt1",
-        "fence_LEFT",
-        "fence_NE",
-        "fence_NW",
-        "fence_RIGHT",
-        "fence_SE",
-        "fence_SW",
-        "fence_TOP",
-        "fence_V",
-        "fence_W",
-        "fence_gate"
-      ]
-    },
-    "homes": {
-      "displayName": "homes",
-      "tileIds": [
-        "door_stone_closed",
-        "door_stone_double_closed_LEFT",
-        "door_stone_double_closed_RIGHT",
-        "door_stone_open",
-        "door_wood_closed",
-        "door_wood_double_closed_LEFT",
-        "door_wood_double_closed_RIGHT",
-        "door_wood_open",
-        "roof_slate",
-        "roof_slate_alt1",
-        "roof_slate_alt2",
-        "roof_slate_alt3",
-        "roof_slate_alt4",
-        "roof_slate_alt5",
-        "roof_slate_dormer",
-        "roof_slate_peak",
-        "roof_tile",
-        "roof_tile_alt1",
-        "roof_tile_alt2",
-        "roof_tile_alt3",
-        "roof_tile_alt4",
-        "roof_tile_alt5",
-        "roof_tile_dormer",
-        "roof_tile_peak",
-        "wall_stone",
-        "wall_stone_E",
-        "wall_stone_W",
-        "wall_wood",
-        "wall_wood_E",
-        "wall_wood_W",
-        "window_stone_shutters",
-        "window_wood_shutters"
-      ]
-    },
-    "other": {
-      "displayName": "other",
-      "tileIds": [
-        "archery_target",
         "arrow",
         "axe",
-        "beehive",
         "bomb",
         "bow",
         "coin",
-        "dirt",
         "jar",
         "key",
-        "log",
-        "mushrooms",
-        "parapet",
         "pickaxe",
         "pitchfork",
         "scythe",
         "shovel",
-        "sign",
-        "vines",
         "water_jug_empty",
-        "water_jug_full",
-        "well_N",
-        "well_S",
-        "wheelbarrow"
+        "water_jug_full"
+      ],
+      "autotileGroups": []
+    },
+    "Structures": {
+      "displayName": "Structures",
+      "tileIds": [
+        "arch-NE",
+        "arch-NW",
+        "arch-SE",
+        "arch-SW",
+        "arch:porticulis-SE",
+        "arch:porticulis-SW",
+        "archery_target",
+        "castle_wall",
+        "castle_window",
+        "parapet",
+        "parapet-E",
+        "parapet-EW",
+        "parapet-NE",
+        "parapet-NES",
+        "parapet-NEW",
+        "parapet-NEWS",
+        "parapet-NW",
+        "parapet-SE",
+        "parapet-SEW",
+        "parapet-SW",
+        "parapet-W",
+        "parapet-WNS",
+        "parapet_ladder-SEWN",
+        "roof_slate-NE",
+        "roof_slate-NEW",
+        "roof_slate-NW",
+        "roof_slate-SE",
+        "roof_slate-SEW",
+        "roof_slate-SW",
+        "roof_slate:chimney-SEW",
+        "roof_slate:peak-NEW",
+        "roof_tile-NE",
+        "roof_tile-NEW",
+        "roof_tile-NW",
+        "roof_tile-SE",
+        "roof_tile-SEW",
+        "roof_tile-SW",
+        "roof_tile:peak-NEW",
+        "roof_tile_:chimney-SEW",
+        "wall_stone-E",
+        "wall_stone-EW",
+        "wall_stone-W",
+        "wall_stone:door-EW",
+        "wall_stone:door_closed",
+        "wall_stone:double_door_closed_left",
+        "wall_stone:double_door_closed_right",
+        "wall_stone:shutters",
+        "wall_wood-E",
+        "wall_wood-EW",
+        "wall_wood-W",
+        "wall_wood:door-EW",
+        "wall_wood:door_closed",
+        "wall_wood:double_door_closed_left",
+        "wall_wood:double_door_closed_right",
+        "wall_wood:shutters",
+        "well-N",
+        "well-S"
+      ],
+      "autotileGroups": [
+        "roof_slate",
+        "roof_tile",
+        "roof_tile_",
+        "wall_wood",
+        "wall_stone",
+        "well",
+        "parapet",
+        "parapet_ladder",
+        "arch"
       ]
     },
-    "terrain": {
-      "displayName": "terrain",
+    "Terrain": {
+      "displayName": "Terrain",
       "tileIds": [
-        "cobblestone_on_grass",
-        "dirt_E ",
-        "dirt_N",
-        "dirt_NE",
-        "dirt_NW",
-        "dirt_S",
-        "dirt_SE",
-        "dirt_SW",
-        "dirt_W",
-        "dirt_alt1",
-        "dirt_alt2",
-        "dirt_alt3",
-        "dirt_alt4",
-        "grass_flowers",
-        "grass_rough",
-        "grass_smooth"
-      ]
-    },
-    "tree": {
-      "displayName": "tree",
-      "tileIds": [
-        "tree_bushy_N",
+        "dirt-ENS",
+        "dirt-NE",
+        "dirt-NEW",
+        "dirt-NW",
+        "dirt-SE",
+        "dirt-SW",
+        "dirt-SWE",
+        "dirt-SWEN",
+        "dirt-WNS",
+        "dirt:alt1-SWEN",
+        "dirt:alt2-SWEN",
+        "dirt:alt3-SWEN",
+        "dirt:alt4-SWEN",
+        "forest_fall-E",
+        "forest_fall-N",
+        "forest_fall-NE",
+        "forest_fall-NW",
+        "forest_fall-S",
+        "forest_fall-S",
+        "forest_fall-SE",
+        "forest_fall-SW",
+        "forest_fall-SWEN",
+        "forest_fall-W",
+        "forest_green-E",
+        "forest_green-N",
+        "forest_green-NE",
+        "forest_green-NW",
+        "forest_green-S",
+        "forest_green-S",
+        "forest_green-SE",
+        "forest_green-SW",
+        "forest_green-SWEN",
+        "forest_green-W",
+        "grass-SWEN",
+        "grass:cobblestone-SWEN",
+        "grass:flowers-SWEN",
+        "grass:rough-SWEN",
+        "mushrooms",
+        "tree_fall-N",
+        "tree_fall:tall-S",
+        "tree_green-N",
+        "tree_green:bushy-S",
+        "tree_green:tall-S",
+        "vines"
+      ],
+      "autotileGroups": [
+        "grass",
         "tree_fall",
-        "tree_fall_S",
-        "tree_fall_cluster",
-        "tree_fall_cluster_E",
-        "tree_fall_cluster_N",
-        "tree_fall_cluster_NE",
-        "tree_fall_cluster_NW",
-        "tree_fall_cluster_S",
-        "tree_fall_cluster_SE",
-        "tree_fall_cluster_SW",
-        "tree_fall_cluster_W",
-        "tree_fall_tall_N",
         "tree_green",
-        "tree_green_S",
-        "tree_green_cluster",
-        "tree_green_cluster_E",
-        "tree_green_cluster_N",
-        "tree_green_cluster_NE",
-        "tree_green_cluster_NW",
-        "tree_green_cluster_S",
-        "tree_green_cluster_SE",
-        "tree_green_cluster_SW",
-        "tree_green_cluster_W",
-        "tree_green_tall_N"
+        "forest_green",
+        "forest_fall",
+        "dirt"
       ]
     }
   }
